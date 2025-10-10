@@ -1,0 +1,13 @@
+{
+  "SENDINGPHONENUMBER": {
+    "demo": {
+      "name": "demo",
+      "status": "active",
+      "verify_code": "123456",
+      "webhook_url": "https://example.com",
+      "bearer_token": "token",
+      "created_ts": 1760015878,
+      "updated_ts": 1760015945
+    }
+  }
+}
