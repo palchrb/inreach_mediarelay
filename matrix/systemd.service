@@ -1,0 +1,25 @@
+[Unit]
+Description=Garmin Messenger Bridge (watcher + handler + provision API)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=root
+EnvironmentFile=-/etc/default/garmin-bridge
+ExecStart=/usr/bin/env python3 /usr/local/bin/garmin_bridge.py
+Restart=always
+RestartSec=1
+# Nice-ish scheduling
+Nice=5
+IOSchedulingClass=best-effort
+IOSchedulingPriority=6
+# Harden a bit
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=false
+# PATH
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
