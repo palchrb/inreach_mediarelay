@@ -1,5 +1,8 @@
 # inreach_mediarelay
+
 Scripts to relay media files (video/media) received on Garmin messenger installed on waydroid &amp; raspberry pi. You need to install and run garmin messenger on the pi, and log in with your own account or create a relay account with a valid phone number.
+
+PLEASE NOTE: still quite early days of testing this, so its not tested throught and through! Use it if you think its fun and useful, but i expect to have to tweak this more going forward. Also, it does not (yet) address how to ensure that waydroid and the messenger app runs safely and consistently in the background so I am looking into that.
 
 Initially made this to bridge media sent via inreach messenger plus to my matrix chats - so that is the initial focus of my watcher script (matrix folder). Also planning to create a more standard messenger app to email version of the watcher script.
 
