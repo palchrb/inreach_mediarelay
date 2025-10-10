@@ -1,0 +1,34 @@
+# --- Paths ---
+DB_PATH=/home/pi.local/share/waydroid/data/data/com.garmin.android.apps.messenger/databases/message.db
+ROOT_NO_BACKUP=/home/pi/.local/share/waydroid/data/data/com.garmin.android.apps.messenger/no_backup
+ROOT_DIR=/home/pi/.local/share/waydroid/data/data/com.garmin.android.apps.messenger/no_backup
+
+# --- Polling ---
+POLL_DB_SEC=1
+TAIL_LIMIT=200
+LAST_N_BOOT=5
+
+# --- Behavior flags ---
+DEBUG=1
+FORWARD_MODE=base64
+DELETE_ON_SUCCESS=1
+DELETE_DELAY_SEC=2
+CAPTION_TARGETING=1
+TARGET_WORD_STRIP=1
+
+# --- HTTP provision endpoint (Maubot -> bridge) ---
+PROVISION_BIND=127.0.0.1
+PROVISION_PORT=8788
+PROVISION_SECRET=testingz
+
+# --- State & runtime ---
+STATE_DIR=/var/lib/garmin-bridge
+SUBS_JSON=/var/lib/garmin-bridge/subs.json
+SEEN_FILE=/var/lib/garmin-bridge/seen.txt
+
+# --- File matching ---
+MEDIA_EXTS=avif,jpg,jpeg,png,ogg,oga,mp4,m4a
+
+# --- HTTP client timeouts & retries ---
+HTTP_TIMEOUT_SEC=15
+RETRY_BACKOFFS=1,4,10
