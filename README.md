@@ -1,11 +1,10 @@
 # inreach_mediarelay
 
-Scripts to relay media files (video/media) received on Garmin messenger installed on waydroid &amp; raspberry pi. You need to install and run garmin messenger on the pi, and log in with your own account or create a relay account with a valid phone number.
+Scripts to relay media files (video/media) received on Garmin messenger installed on e.g. waydroid &amp; raspberry pi. Other solutions are also possible here for different ways of running an android system, e.g. docker redroid is what i am currently using, which seems to be working well for this purpose. You need to install and run garmin messenger on android system/emulator of your choice, and log in with your own account or create a relay account with a valid phone number.
 
-PLEASE NOTE: still quite early days of testing this, so its not tested throught and through! Use it if you think its fun and useful, but i expect to have to tweak this more going forward. Also, it does not (yet) address how to ensure that waydroid and the messenger app runs safely and consistently in the background so I am looking into that.
+Initially made this to bridge media sent via inreach messenger plus to my matrix chats - so that is the initial focus of my watcher script (matrix folder). Have now also created a version intended to only forward the media messages via email, for those interested in that.
 
-Initially made this to bridge media sent via inreach messenger plus to my matrix chats - so that is the initial focus of my watcher script (matrix folder). Also planning to create a more standard messenger app to email version of the watcher script.
-
+For matrix relay purposes;
 The watcher currently has a provisioning endpoint which can be used to send subscription request from a matrix room, with a media webhook url + bearer token, as well as the phone number of the garmin messenger user you want to subscribe to the media stream off. The inreach user then has to acknowledge your subscription for the watcher to start actually relaying the media by sending a text to the relay number that the watcher script will pick up.
 
 So the flow is;
@@ -16,6 +15,10 @@ So the flow is;
 - Afte successfull sending, watcher will delete media file
 
  It is possible for one inreach user to set up multiple subscriptions, meaning to send images to multiple matrix rooms. If the inreach user puts the <name> of a subscription in the first word in the caption of a media file, the file will only be sent to the specific subscription room (and not any other rooms that might be subscribing to media from the user). So multiple subscriptions and no caption = send media to all subscribed rooms
+
+For email relay;
+- You can either run it as a bridge to a list of specific emails, then all media files will be sent to the emails listed in the env file - or you can let the sender specify email address as the first word in the caption, and it will send to the specified address (can send to multiple addresses like that as well - just separate with , or ; )
+- That's it! You need to specify smtp details for an email address to send from etc in the env filde
 
  Probably better ways of doing this, but i am not smart enough to reverse engineer garmin's api for this - so will leave that to others!
 
