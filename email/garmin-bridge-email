@@ -1,0 +1,29 @@
+# --- DB / Media --- Define the path to your android emulator/setups garmin messenger db and media file store
+DB_PATH=/opt/stacks/redroid/data/data/com.garmin.android.apps.messenger/databases/message.db
+ROOT_DIR=/opt/stacks/redroid/data/data/com.garmin.android.apps.messenger/no_backup
+STATE_DIR=/var/lib/garmin-email-bridge
+POLL_DB_SEC=1
+TAIL_LIMIT=200
+LAST_N_BOOT=5
+DEBUG=1
+MAX_ATTACH_MB=5
+
+# --- SMTP (App Password / LOGIN) ---
+SMTP_HOST="smtp.google.com"
+SMTP_PORT=587
+SMTP_USER = "username"
+SMTP_PASS = "password"
+SMTP_FROM="noreply@example.com"
+SMTP_USE_TLS=1
+
+
+# --- Routing-modes ---
+# 0 = email reciptient needs to be specified in caption (rutes dit)
+# 1 = send all media files to a list of fixed reciptients (ignore emails in caption)
+USE_FIXED_RECIPIENTS=0
+FIXED_RECIPIENTS=hei@test.me,alice@example.com
+
+
+# --- Map settings ---
+MAP_ZOOM=14
+MAP_LAYER=P   # OpenTopoMap
