@@ -19,8 +19,8 @@ So the flow is;
  It is possible for one inreach user to set up multiple subscriptions, meaning to send images to multiple matrix rooms. If the inreach user puts the <name> of a subscription in the first word in the caption of a media file, the file will only be sent to the specific subscription room (and not any other rooms that might be subscribing to media from the user). So multiple subscriptions and no caption = send media to all subscribed rooms
 
 For email relay;
-- You can either run it as a bridge to a list of specific emails, then all media files will be sent to the emails listed in the env file - or you can let the sender specify email address as the first word in the caption, and it will send to the specified address (can send to multiple addresses like that as well - just separate with , or ; )
 - I have personally run it as a systemd-service, so the .py file, an etc/default env file and .service file for systemd is included in the email folder
+- You can either run it as a bridge to a list of specific emails, then all media files will be sent to the emails listed in the env file - or you can let the sender specify email address as the first word in the caption, and it will send to the specified address (can send to multiple addresses like that as well - just separate with , or ; )
 - That's it! You need to specify smtp details for an email address to send from etc in the env filde
 
  Probably better ways of doing this, but i am not smart enough to reverse engineer garmin's api for this - so will leave that to others!
