@@ -6,7 +6,7 @@ NOTE! **don't send multiple media attachments in one message - the messenger app
 
 Initially made this to bridge media sent via inreach messenger plus to my matrix chats - so that is the initial focus of my watcher script (matrix folder). Have now also created a version intended to only forward the media messages via email, for those interested in that.
 
-For matrix relay purposes;
+**For matrix relay**
 
 The watcher currently has a provisioning endpoint which can be used to send subscription request from a matrix room, with a media webhook url + bearer token, as well as the phone number of the garmin messenger user you want to subscribe to the media stream off. The inreach user then has to acknowledge your subscription for the watcher to start actually relaying the media by sending a text to the relay number that the watcher script will pick up.
 
@@ -19,7 +19,7 @@ So the flow is;
 
  It is possible for one inreach user to set up multiple subscriptions, meaning to send images to multiple matrix rooms. If the inreach user puts the <name> of a subscription in the first word in the caption of a media file, the file will only be sent to the specific subscription room (and not any other rooms that might be subscribing to media from the user). So multiple subscriptions and no caption = send media to all subscribed rooms
 
-For email relay;
+**For email relay**
 - I have personally run it as a systemd-service, so the .py file, an etc/default env file and .service file for systemd is included in the email folder
 - You can either run it as a bridge to a list of specific emails, then all media files will be sent to the emails listed in the env file - or you can let the sender specify email address as the first word in the caption, and it will send to the specified address (can send to multiple addresses like that as well - just separate with , or ; )
 - That's it! You need to specify smtp details for an email address to send from etc in the env filde
