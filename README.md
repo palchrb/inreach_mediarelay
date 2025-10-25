@@ -7,6 +7,7 @@ NOTE! **don't send multiple media attachments in one message - the messenger app
 Initially made this to bridge media sent via inreach messenger plus to my matrix chats - so that is the initial focus of my watcher script (matrix folder). Have now also created a version intended to only forward the media messages via email, for those interested in that.
 
 For matrix relay purposes;
+
 The watcher currently has a provisioning endpoint which can be used to send subscription request from a matrix room, with a media webhook url + bearer token, as well as the phone number of the garmin messenger user you want to subscribe to the media stream off. The inreach user then has to acknowledge your subscription for the watcher to start actually relaying the media by sending a text to the relay number that the watcher script will pick up.
 
 So the flow is;
