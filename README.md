@@ -1,6 +1,6 @@
 # inreach_mediarelay
 
-Scripts to relay media files (video/media) received on Garmin messenger installed on e.g. waydroid &amp; raspberry pi. Other solutions are also possible here for different ways of running an android system, e.g. docker redroid is what i am currently using, which seems to be working well for this purpose. You need to install and run garmin messenger on android system/emulator of your choice, and log in with your own account or create a relay account with a valid phone number.
+Scripts to relay media files (video/media) received on Garmin messenger installed on e.g. waydroid &amp; raspberry pi. Other solutions are also possible here for different ways of running an android system, e.g. docker redroid is what i am currently using, which seems to be working well for this purpose. You need to install and run garmin messenger on android system/emulator of your choice, and log in with a Garmin messenger account (your own, or create a separate relay account with a valid phone number.)
 
 NOTE! **don't send multiple media attachments in one message - the messenger app does not download multiple media files, and the media file will get stuck until the next event occurs in the inbox. So - send only one media file per message**
 
