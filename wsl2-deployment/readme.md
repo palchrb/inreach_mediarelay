@@ -82,7 +82,6 @@ nano /etc/wsl.conf
 Add the following under the `[boot]` section:
 
 ```ini
-[boot]
 command="mkdir -p /dev/binderfs && mount -t binder binder /dev/binderfs && modprobe vgem"
 ```
 
