@@ -1,0 +1,43 @@
+services:
+  redroid13:
+    build:
+      context: .   # katalogen der Dockerfile ligger
+      dockerfile: Dockerfile               # eksplisitt, men valgfritt
+    container_name: redroid13
+    privileged: true
+    restart: always
+
+    ports:
+      - "127.0.0.1:5555:5555"       # ADB kun lokalt
+    devices:
+      - "/dev/kvm:/dev/kvm"         # KVM-aksellerasjon
+      - "/dev/dri:/dev/dri"         # GPU-tilgang
+    volumes:
+      - redroid-data:/data                # persistent /data (samme katalog som compose-fila)
+    shm_size: "2g"
+
+    command: >
+      androidboot.redroid_width=1080
+      androidboot.redroid_height=1920
+      androidboot.redroid_dpi=480
+      androidboot.redroid_fps=60
+      androidboot.redroid_gpu_mode=guest
+      androidboot.use_memfd=true
+      ro.setupwizard.mode=DISABLED
+
+  garmin-bridge:
+    build:
+      context: ./bridge
+      dockerfile: Dockerfile
+    container_name: garmin-bridge
+    restart: always
+
+    volumes:
+      - redroid-data:/android-data:ro
+      - /var/lib/garmin-email-bridge:/var/lib/garmin-email-bridge
+
+    env_file:
+      - /home/palchrb/redroidtest/bridge/garmin.env
+
+volumes:
+  redroid-data:
