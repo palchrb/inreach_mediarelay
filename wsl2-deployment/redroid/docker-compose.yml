@@ -1,19 +1,19 @@
 services:
   redroid13:
     build:
-      context: .   # katalogen der Dockerfile ligger
-      dockerfile: Dockerfile               # eksplisitt, men valgfritt
+      context: .   
+      dockerfile: Dockerfile               
     container_name: redroid13
     privileged: true
     restart: always
 
     ports:
-      - "127.0.0.1:5555:5555"       # ADB kun lokalt
+      - "127.0.0.1:5555:5555"       # ADB 
     devices:
-      - "/dev/kvm:/dev/kvm"         # KVM-aksellerasjon
-      - "/dev/dri:/dev/dri"         # GPU-tilgang
+      - "/dev/kvm:/dev/kvm"         
+      - "/dev/dri:/dev/dri"         
     volumes:
-      - redroid-data:/data                # persistent /data (samme katalog som compose-fila)
+      - redroid-data:/data          
     shm_size: "2g"
 
     command: >
@@ -37,7 +37,7 @@ services:
       - /var/lib/garmin-email-bridge:/var/lib/garmin-email-bridge
 
     env_file:
-      - /home/palchrb/redroidtest/bridge/garmin.env
+      - /home/debian/redroidtest/bridge/garmin.env
 
 volumes:
   redroid-data:
